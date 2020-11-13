@@ -1,36 +1,44 @@
-import React, { Component } from 'react';
-import './App.css'
-import * as firebase from 'firebase';
+import React, { Component } from "react";
+import "./App.css";
+import App2 from "./App2.js";
+import Play from "./Play"
+import * as firebase from "firebase";
+import PlayHook from './PlayHook'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: 32
-    }
+      data: 32,
+    };
     this.handleEvent = this.handleEvent.bind(this);
   }
   handleEvent() {
     this.setState({
-      data: this.state.data + 1
-    })
+      data: this.state.data + 1,
+    });
   }
   componentDidMount() {
-    const rootRef = firebase.database().ref().child('react')
-    const speedRef = rootRef.child('speed')
-    speedRef.on('value', snap => {
+    const rootRef = firebase.database().ref().child("react");
+    const speedRef = rootRef.child("speed");
+    speedRef.on("value", (snap) => {
       this.setState({
-        data: snap.val()
-      })
-    })
+        data: snap.val(),
+      });
+    });
   }
   render() {
     return (
-      <div className="App">
-        <h1>{this.state.data}</h1>
-        <button onClick={this.handleEvent}>Chick here</button>
+      <div className="outer">
+        <div className="App">
+          <h1>{this.state.data}</h1>
+          <button onClick={this.handleEvent}>Chick here</button>
+        <App2 />
+        <Play />
+        <PlayHook />
+        </div>
       </div>
     );
   }
 }
-export default App;  
+export default App;

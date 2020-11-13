@@ -1,29 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './App.css'
-import * as firebase from 'firebase';
+import React, { useEffect, useRef, useState } from "react";
+import "./App.css";
+import * as firebase from "firebase";
 
-const App = () => {
+const App2 = () => {
   const [data, setData] = useState(32);
   const speedRef = useRef(null);
 
   useEffect(() => {
-    speedRef.current = firebase.database().ref('speed')
-    speedRef.current.on('value', snap => {
-      setData(snap.val())
+    speedRef.current = firebase.database().ref("speed");
+    speedRef.current.on("value", (snap) => {
+      setData(snap.val());
     });
-  }, [])
+  }, []);
 
   useEffect(() => {
-    updateSpeedRef(data)
-  }, [data])
+    updateSpeedRef(data);
+  }, [data]);
 
   const handleEvent = () => {
-    setData(prevData => prevData + 1)
-  }
+    setData((prevData) => prevData + 1);
+  };
 
-  const updateSpeedRef = value => {
-    speedRef.current.set(value)
-  }
+  const updateSpeedRef = (value) => {
+    speedRef.current.set(value);
+  };
 
   return (
     <div className="App">
@@ -31,6 +31,5 @@ const App = () => {
       <button onClick={handleEvent}>Chick here</button>
     </div>
   );
-
-}
-export default App;  
+};
+export default App2;
