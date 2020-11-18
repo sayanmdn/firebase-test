@@ -4,6 +4,8 @@ import App2 from "./App2.js";
 import Play from "./Play"
 import * as firebase from "firebase";
 import PlayHook from './PlayHook'
+import PlayHookTwo from './PlayHookTwo'
+import PlayHookThree from './PlayHookThree'
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +38,8 @@ class App extends Component {
         <App2 />
         <Play />
         <PlayHook />
+        <PlayHookTwo />
+        <PlayHookThree />
         </div>
       </div>
     );
