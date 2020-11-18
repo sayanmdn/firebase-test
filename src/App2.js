@@ -11,20 +11,20 @@ const App2 = () => {
     speedRef.current.on("value", (snap) => {
       setData(snap.val());
     });
+    console.log("flag 14")
   }, []);
 
   useEffect(() => {
     updateSpeedRef(data);
   }, [data]);
 
-  const handleEvent = () => {
-    setData((prevData) => prevData + 1);
-  };
-
   const updateSpeedRef = (value) => {
     speedRef.current.set(value);
   };
-
+  
+  const handleEvent = () => {
+    setData((prevData) => prevData + 1);
+  };
   return (
     <div className="App">
       <h1>{data}</h1>
