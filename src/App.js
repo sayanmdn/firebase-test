@@ -6,6 +6,7 @@ import * as firebase from "firebase";
 import PlayHook from './PlayHook'
 import PlayHookTwo from './PlayHookTwo'
 import PlayHookThree from './PlayHookThree'
+import Button from '@material-ui/core/Button';
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +42,9 @@ class App extends Component {
         <PlayHookTwo />
         <PlayHookThree />
         </div>
+        <Button variant="contained" color="primary">
+      Meterial
+    </Button>
       </div>
     );
   }
